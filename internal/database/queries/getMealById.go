@@ -182,7 +182,7 @@ func getMealEntries(db *sql.DB, mealId int) (*[]models.MealEntry, error) {
 			&m.FruitsVegNutsEst,
 		)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("failed to scan meal entry: %w", err)
 		}
 		mealEntries = append(mealEntries, m)
 	}
@@ -198,7 +198,7 @@ func getMealById(db *sql.DB, id int, username string) (*models.Meal, error) {
 		return nil, nil
 	}
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to scan meal: %w", err)
 	}
 	return &meal, nil
 }
