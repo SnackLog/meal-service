@@ -5,12 +5,12 @@ import (
 )
 
 type MealEntry struct {
-	ID           int        `json:"id" db:"id"`
-	MealID       int        `json:"meal_id" db:"meal_id"`
-	Name         string     `json:"name" db:"name"`
-	Quantity     float64    `json:"quantity" db:"quantity"`
-	QuantityUnit string     `json:"quantity_unit" db:"quantity_unit"`
-	CreatedAt    time.Time `json:"created_at" db:"created_at"`
+	ID           int       `json:"-" db:"id" binding:"-"`
+	MealID       int       `json:"-" db:"meal_id" binding:"-"`
+	Name         string    `json:"name" db:"name" binding:"required"`
+	Quantity     float64   `json:"quantity" db:"quantity" binding:"required"`
+	QuantityUnit string    `json:"quantity_unit" db:"quantity_unit" binding:"required"`
+	CreatedAt    time.Time `json:"created_at" db:"created_at" binding:"-"`
 
 	// Energy
 	EnergyKcal     *float64 `json:"energy_kcal" db:"energy_kcal"`

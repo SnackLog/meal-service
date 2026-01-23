@@ -84,3 +84,5 @@ CREATE TABLE meal_entries (
     fruits_veg_legumes_est  DOUBLE PRECISION,
     fruits_veg_nuts_est     DOUBLE PRECISION
 );
+
+CREATE INDEX idx_meal_entries_meal_id ON meal_entries(meal_id);
