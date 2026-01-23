@@ -82,5 +82,9 @@ func InsertMealEntryTx(tx *sql.Tx, mealId int, entry models.MealEntry) error {
 		entry.NovaGroup, entry.NutritionScoreFr, entry.FruitsVegLegumesEst, entry.FruitsVegNutsEst,
 	)
 
-	return err
+	if err != nil {
+		return fmt.Errorf("failed to insert meal entry: %w", err)
+	}
+
+	return nil
 }

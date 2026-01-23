@@ -21,7 +21,7 @@ func (mc *MealController) Post(c *gin.Context) {
 	mealID, err := queries.CreateMeal(mc.DB, username, requestBody)
 	if err != nil {
 		log.Println("Error creating meal:", err)
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create meal."})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create meal"})
 		return
 	}
 

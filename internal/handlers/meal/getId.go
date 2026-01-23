@@ -10,7 +10,7 @@ import (
 )
 
 func (mc *MealController) GetID(c *gin.Context) {
-	id, err := strconv.Atoi(c.Param("id")) 
+	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
 		log.Printf("Error converting meal ID: %v", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid meal ID"})
