@@ -1,0 +1,474 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is the API for the Meal Service.",
+        "title": "Meal Service API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/meal": {
+            "post": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Create a new meal",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meals"
+                ],
+                "summary": "Create a meal",
+                "parameters": [
+                    {
+                        "description": "Meal Data",
+                        "name": "meal",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.Meal"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "integer"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/meal/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Get a meal by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meals"
+                ],
+                "summary": "Get a meal",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Meal ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/models.Meal"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "BearerAuth": []
+                    }
+                ],
+                "description": "Delete a meal by ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meals"
+                ],
+                "summary": "Delete a meal",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Meal ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.Meal": {
+            "type": "object",
+            "required": [
+                "name",
+                "timestamp"
+            ],
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "meal_entries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.MealEntry"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
+                }
+            }
+        },
+        "models.MealEntry": {
+            "type": "object",
+            "required": [
+                "name",
+                "quantity",
+                "quantity_unit"
+            ],
+            "properties": {
+                "alcohol": {
+                    "type": "number"
+                },
+                "beta_carotene": {
+                    "type": "number"
+                },
+                "calcium": {
+                    "description": "Minerals",
+                    "type": "number"
+                },
+                "carbohydrates": {
+                    "description": "Macros: Carbohydrates \u0026 Sugars",
+                    "type": "number"
+                },
+                "carbohydrates_unit": {
+                    "type": "string"
+                },
+                "cholesterol": {
+                    "type": "number"
+                },
+                "copper": {
+                    "type": "number"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "energy_kcal": {
+                    "description": "Energy",
+                    "type": "number"
+                },
+                "energy_kcal_unit": {
+                    "type": "string"
+                },
+                "energy_kj": {
+                    "type": "number"
+                },
+                "energy_kj_unit": {
+                    "type": "string"
+                },
+                "fat": {
+                    "description": "Macros: Fats",
+                    "type": "number"
+                },
+                "fat_unit": {
+                    "type": "string"
+                },
+                "fiber": {
+                    "type": "number"
+                },
+                "fructose": {
+                    "type": "number"
+                },
+                "fruits_veg_legumes_est": {
+                    "type": "number"
+                },
+                "fruits_veg_nuts_est": {
+                    "type": "number"
+                },
+                "galactose": {
+                    "type": "number"
+                },
+                "glucose": {
+                    "type": "number"
+                },
+                "iodine": {
+                    "type": "number"
+                },
+                "iron": {
+                    "type": "number"
+                },
+                "lactose": {
+                    "type": "number"
+                },
+                "magnesium": {
+                    "type": "number"
+                },
+                "maltose": {
+                    "type": "number"
+                },
+                "manganese": {
+                    "type": "number"
+                },
+                "monounsaturated_fat": {
+                    "type": "number"
+                },
+                "monounsaturated_fat_unit": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "nova_group": {
+                    "description": "Scores \u0026 Estimates",
+                    "type": "integer"
+                },
+                "nutrition_score_fr": {
+                    "type": "integer"
+                },
+                "pantothenic_acid": {
+                    "type": "number"
+                },
+                "phosphorus": {
+                    "type": "number"
+                },
+                "phylloquinone": {
+                    "type": "number"
+                },
+                "polyols": {
+                    "type": "number"
+                },
+                "polyunsaturated_fat": {
+                    "type": "number"
+                },
+                "polyunsaturated_fat_unit": {
+                    "type": "string"
+                },
+                "potassium": {
+                    "type": "number"
+                },
+                "proteins": {
+                    "description": "Macros: Proteins \u0026 Others",
+                    "type": "number"
+                },
+                "proteins_unit": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "number"
+                },
+                "quantity_unit": {
+                    "type": "string"
+                },
+                "salt": {
+                    "description": "Salt \u0026 Sodium",
+                    "type": "number"
+                },
+                "salt_unit": {
+                    "type": "string"
+                },
+                "saturated_fat": {
+                    "type": "number"
+                },
+                "saturated_fat_unit": {
+                    "type": "string"
+                },
+                "selenium": {
+                    "type": "number"
+                },
+                "sodium": {
+                    "type": "number"
+                },
+                "sodium_unit": {
+                    "type": "string"
+                },
+                "starch": {
+                    "type": "number"
+                },
+                "sucrose": {
+                    "type": "number"
+                },
+                "sugars": {
+                    "type": "number"
+                },
+                "trans_fat": {
+                    "type": "number"
+                },
+                "trans_fat_unit": {
+                    "type": "string"
+                },
+                "vitamin_a": {
+                    "description": "Vitamins",
+                    "type": "number"
+                },
+                "vitamin_b1": {
+                    "type": "number"
+                },
+                "vitamin_b12": {
+                    "type": "number"
+                },
+                "vitamin_b2": {
+                    "type": "number"
+                },
+                "vitamin_b6": {
+                    "type": "number"
+                },
+                "vitamin_b9": {
+                    "type": "number"
+                },
+                "vitamin_c": {
+                    "type": "number"
+                },
+                "vitamin_d": {
+                    "type": "number"
+                },
+                "vitamin_e": {
+                    "type": "number"
+                },
+                "vitamin_pp": {
+                    "type": "number"
+                },
+                "water": {
+                    "type": "number"
+                },
+                "zinc": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

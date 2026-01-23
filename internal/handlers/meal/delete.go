@@ -9,6 +9,20 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Delete godoc
+// @Summary      Delete a meal
+// @Description  Delete a meal by ID
+// @Tags         meals
+// @Accept       json
+// @Produce      json
+// @Param        id   path      int  true  "Meal ID"
+// @Success      204  "No Content"
+// @Failure      400  {object}  map[string]string
+// @Failure      401  {object}  map[string]string
+// @Failure      404  {object}  map[string]string
+// @Failure      500  {object}  map[string]string
+// @Security     BearerAuth
+// @Router       /meal/{id} [delete]
 func (mc *MealController) Delete(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
