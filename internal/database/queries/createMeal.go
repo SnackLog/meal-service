@@ -9,10 +9,10 @@ import (
 
 func CreateMeal(db *sql.DB, username string, meal models.Meal) (int, error) {
 	tx, err := db.Begin()
-	defer tx.Rollback()
 	if err != nil {
 		return 0, fmt.Errorf("failed to begin transaction: %v", err)
 	}
+	defer tx.Rollback()
 
 	mealID, err := CreateMealTx(tx, username, meal)
 	if err != nil {
