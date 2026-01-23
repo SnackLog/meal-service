@@ -20,6 +20,15 @@ import (
 	"github.com/golang-migrate/migrate/v4/source/iofs"
 )
 
+// @title           Meal Service API
+// @version         1.0
+// @description     This is the API for the Meal Service.
+// @BasePath  /api/v1
+
+// @securityDefinitions.apikey BearerAuth
+// @in header
+// @name Authorization
+
 func main() {
 	loadConfigs()
 	migrateDatabase()

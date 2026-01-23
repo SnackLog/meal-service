@@ -2,7 +2,6 @@ package health
 
 import "github.com/gin-gonic/gin"
 
-// GetHealthStatus handles GET /health requests to check service health, pings the database
 func (hc *HealthController) GetHealthStatus(c *gin.Context) {
 	err := hc.DB.Ping()
 	if err != nil {
