@@ -5,3 +5,6 @@ CREATE TABLE meals (
     username VARCHAR(255) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE INDEX idx_meals_username ON meals(username);
+CREATE INDEX idx_meals_timestamp ON meals(timestamp);
