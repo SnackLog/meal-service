@@ -16,7 +16,7 @@ import (
 // @Accept       json
 // @Produce      json
 // @Param        id   path      int  true  "Meal ID"
-// @Success      204  {object}  nil
+// @Success      204  "No Content"
 // @Failure      400  {object}  map[string]string
 // @Failure      401  {object}  map[string]string
 // @Failure      404  {object}  map[string]string
