@@ -186,6 +186,9 @@ func getMealEntries(db *sql.DB, mealId int) (*[]models.MealEntry, error) {
 		}
 		mealEntries = append(mealEntries, m)
 	}
+	if err = rows.Err(); err != nil {
+		return nil, fmt.Errorf("error iterating over meal entries rows: %w", err)
+	}
 	return &mealEntries, nil
 }
 
