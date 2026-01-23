@@ -82,5 +82,5 @@ CREATE TABLE meal_entries (
     nova_group              SMALLINT,
     nutrition_score_fr      SMALLINT,
     fruits_veg_legumes_est  DOUBLE PRECISION,
-    fruits_veg_nuts_est     DOUBLE PRECISION,
+    fruits_veg_nuts_est     DOUBLE PRECISION
 );
