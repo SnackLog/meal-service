@@ -16,13 +16,13 @@ func CreateMeal(db *sql.DB, username string, meal models.Meal) (int, error) {
 
 	mealID, err := CreateMealTx(tx, username, meal)
 	if err != nil {
-		return 0, err
+		return 0, fmt.Errorf("failed to create meal: %v", err)
 	}
 
 	for _, entry := range meal.MealEntries {
 		err = InsertMealEntryTx(tx, mealID, entry)
 		if err != nil {
-			return 0, err
+			return 0, fmt.Errorf("failed to insert meal entry: %v", err)
 		}
 	}
 
