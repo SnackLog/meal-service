@@ -50,7 +50,7 @@ func setupHealthEndpoints(engine *gin.Engine, db *sql.DB) {
 // setupMealEndpoints sets up the meal endpoints
 func setupMealEndpoints(engine *gin.Engine, db *sql.DB) {
 	mc := meal.MealController{DB: db}
-	engine.GET("/meal/:id", authLib.Authentication, mc.GetId)
+	engine.GET("/meal/:id", authLib.Authentication, mc.GetID)
 	engine.POST("/meal", authLib.Authentication, mc.Post)
 	engine.DELETE("/meal/:id", authLib.Authentication, mc.Delete)
 }

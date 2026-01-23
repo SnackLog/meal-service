@@ -6,6 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func (mc *MealController) GetId(c *gin.Context) {
+func (mc *MealController) GetID(c *gin.Context) {
 	c.AbortWithStatus(http.StatusNotImplemented)
 }
