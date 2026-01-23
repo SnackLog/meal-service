@@ -10,7 +10,7 @@ type MealEntry struct {
 	Name         string     `json:"name" db:"name"`
 	Quantity     float64    `json:"quantity" db:"quantity"`
 	QuantityUnit string     `json:"quantity_unit" db:"quantity_unit"`
-	CreatedAt    *time.Time `json:"created_at" db:"created_at"`
+	CreatedAt    time.Time `json:"created_at" db:"created_at"`
 
 	// Energy
 	EnergyKcal     *float64 `json:"energy_kcal" db:"energy_kcal"`

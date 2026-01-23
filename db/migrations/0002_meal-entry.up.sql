@@ -4,7 +4,7 @@ CREATE TABLE meal_entries (
     name VARCHAR(255) NOT NULL,
     quantity DOUBLE PRECISION NOT NULL,
     quantity_unit VARCHAR(50) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     -- Energy
     energy_kcal             DOUBLE PRECISION,
