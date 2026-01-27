@@ -11,6 +11,7 @@ import (
 func GetMealsByDate(db *sql.DB, username string, dateNotAfter time.Time, dateNotBefore time.Time) ([]models.Meal, error) {
 	query := `SELECT id, name, timestamp, created_at
 			  FROM meals
+			  ORDER BY timestamp DESC
 			  WHERE timestamp < $1 AND timestamp > $2 AND username = $3
 			  LIMIT 100`
 	rows, err := db.Query(query, dateNotAfter, dateNotBefore, username)
@@ -42,6 +43,7 @@ func GetMealsByDate(db *sql.DB, username string, dateNotAfter time.Time, dateNot
 func GetMealsByDateNotBefore(db *sql.DB, username string, dateNotBefore time.Time) ([]models.Meal, error) {
 	query := `SELECT id, name, timestamp, created_at
 			  FROM meals
+			  ORDER BY timestamp DESC
 			  WHERE timestamp > $1 AND username = $2
 			  LIMIT 100`
 	rows, err := db.Query(query, dateNotBefore, username)
@@ -73,6 +75,7 @@ func GetMealsByDateNotBefore(db *sql.DB, username string, dateNotBefore time.Tim
 func GetMealsByDateNotAfter(db *sql.DB, username string, dateNotAfter time.Time) ([]models.Meal, error) {
 	query := `SELECT id, name, timestamp, created_at
 			  FROM meals
+			  ORDER BY timestamp DESC
 			  WHERE timestamp < $1 AND username = $2
 			  LIMIT 100`
 	rows, err := db.Query(query, dateNotAfter, username)
