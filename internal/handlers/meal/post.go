@@ -6,6 +6,7 @@ import (
 
 	"github.com/SnackLog/meal-service/internal/database/models"
 	"github.com/SnackLog/meal-service/internal/database/queries"
+	"github.com/SnackLog/meal-service/internal/handlers"
 	"github.com/gin-gonic/gin"
 )
 
@@ -17,16 +18,16 @@ import (
 // @Produce      json
 // @Param        meal  body      models.Meal  true  "Meal Data"
 // @Success      201   {object}  map[string]int
-// @Failure      400   {object}  map[string]string
-// @Failure      401   {object}  map[string]string
-// @Failure      500   {object}  map[string]string
+// @Failure      400   {object}  handlers.Error
+// @Failure      401   {object}  handlers.Error
+// @Failure      500   {object}  handlers.Error
 // @Security     BearerAuth
 // @Router       /meal [post]
 func (mc *MealController) Post(c *gin.Context) {
 	var requestBody models.Meal
 	if err := c.ShouldBind(&requestBody); err != nil {
 		log.Println("Error binding request body:", err)
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request body."})
+		c.JSON(http.StatusBadRequest, handlers.Error{Error: "Invalid request body."})
 		return
 	}
 
@@ -34,7 +35,7 @@ func (mc *MealController) Post(c *gin.Context) {
 	mealID, err := queries.CreateMeal(mc.DB, username, requestBody)
 	if err != nil {
 		log.Println("Error creating meal:", err)
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create meal"})
+		c.JSON(http.StatusInternalServerError, handlers.Error{Error: "Failed to create meal"})
 		return
 	}
 
