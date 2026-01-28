@@ -205,3 +205,4 @@ func getMealById(db *sql.DB, id int, username string) (*models.Meal, error) {
 	}
 	return &meal, nil
 }
+

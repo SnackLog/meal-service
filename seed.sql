@@ -4,7 +4,7 @@ ALTER SEQUENCE meals_id_seq RESTART WITH 3;
 -- Seed data for 'meals'
 INSERT INTO meals (id, name, timestamp, username) VALUES
 (1, 'Quinoa Power Bowl', '2026-01-23 12:30:00', 'foo'),
-(2, 'Salmon Dinner', '2026-01-23 19:00:00', 'bar');
+(2, 'Salmon Dinner', '2026-01-28 19:00:00', 'foo');
 
 -- Seed data for 'meal_entries'
 

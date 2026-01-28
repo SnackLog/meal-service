@@ -191,6 +191,60 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/meals": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "Get meals for a user filtered by date range",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "meals"
+                ],
+                "summary": "Get meals by date",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Get meals not after this date (YYYY-MM-DD)",
+                        "name": "date_not_after",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "description": "Get meals not before this date (YYYY-MM-DD)",
+                        "name": "date_not_before",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/meal.mealGetResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.Error"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -199,6 +253,17 @@ const docTemplate = `{
             "properties": {
                 "error": {
                     "type": "string"
+                }
+            }
+        },
+        "meal.mealGetResponse": {
+            "type": "object",
+            "properties": {
+                "meals": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.Meal"
+                    }
                 }
             }
         },
