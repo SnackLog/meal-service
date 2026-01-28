@@ -184,6 +184,39 @@ info:
   version: "1.0"
 paths:
   /meal:
+    get:
+      consumes:
+      - application/json
+      description: Get meals for a user filtered by date range
+      parameters:
+      - description: Get meals not after this date (YYYY-MM-DD)
+        in: query
+        name: date_not_after
+        type: string
+      - description: Get meals not before this date (YYYY-MM-DD)
+        in: query
+        name: date_not_before
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/meal.mealGetResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.Error'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/handlers.Error'
+      security:
+      - ApiKeyAuth: []
+      summary: Get meals by date
+      tags:
+      - meals
     post:
       consumes:
       - application/json
@@ -294,40 +327,6 @@ paths:
       security:
       - BearerAuth: []
       summary: Get a meal
-      tags:
-      - meals
-  /meals:
-    get:
-      consumes:
-      - application/json
-      description: Get meals for a user filtered by date range
-      parameters:
-      - description: Get meals not after this date (YYYY-MM-DD)
-        in: query
-        name: date_not_after
-        type: string
-      - description: Get meals not before this date (YYYY-MM-DD)
-        in: query
-        name: date_not_before
-        type: string
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/meal.mealGetResponse'
-        "400":
-          description: Bad Request
-          schema:
-            $ref: '#/definitions/handlers.Error'
-        "500":
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/handlers.Error'
-      security:
-      - ApiKeyAuth: []
-      summary: Get meals by date
       tags:
       - meals
 securityDefinitions:
