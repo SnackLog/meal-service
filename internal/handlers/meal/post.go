@@ -10,6 +10,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type mealPostResponse struct {
+	MealId int `json:"meal_id"`
+}
+
 // Post godoc
 // @Summary      Create a meal
 // @Description  Create a new meal
@@ -39,5 +43,5 @@ func (mc *MealController) Post(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusCreated, gin.H{"meal_id": mealID})
+	c.JSON(http.StatusCreated, mealPostResponse{MealId: mealID})
 }
