@@ -229,7 +229,7 @@ paths:
           schema:
             $ref: '#/definitions/handlers.Error'
       security:
-      - ApiKeyAuth: []
+      - BearerAuth: []
       summary: Get meals by date
       tags:
       - meals
