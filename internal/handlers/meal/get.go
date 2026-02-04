@@ -28,7 +28,7 @@ type mealGetResponse struct {
 // @Success 200 {object} mealGetResponse
 // @Failure 400 {object} handlers.Error
 // @Failure 500 {object} handlers.Error
-// @Security ApiKeyAuth
+// @Security     BearerAuth
 // @Router /meal [get]
 func (mc *MealController) Get(c *gin.Context) {
 	username := c.GetString("username")

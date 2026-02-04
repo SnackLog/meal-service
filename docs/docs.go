@@ -92,7 +92,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/models.Meal"
+                            "$ref": "#/definitions/meal.mealPostRequest"
                         }
                     }
                 ],
@@ -262,6 +262,30 @@ const docTemplate = `{
                     "items": {
                         "$ref": "#/definitions/models.Meal"
                     }
+                }
+            }
+        },
+        "meal.mealPostRequest": {
+            "type": "object",
+            "required": [
+                "name",
+                "timestamp"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "meal_entries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/models.MealEntry"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "timestamp": {
+                    "type": "string"
                 }
             }
         },
