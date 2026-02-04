@@ -19,7 +19,7 @@ const docTemplate = `{
             "get": {
                 "security": [
                     {
-                        "ApiKeyAuth": []
+                        "BearerAuth": []
                     }
                 ],
                 "description": "Get meals for a user filtered by date range",
