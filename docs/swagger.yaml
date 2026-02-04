@@ -12,6 +12,22 @@ definitions:
           $ref: '#/definitions/models.Meal'
         type: array
     type: object
+  meal.mealPostRequest:
+    properties:
+      id:
+        type: integer
+      meal_entries:
+        items:
+          $ref: '#/definitions/models.MealEntry'
+        type: array
+      name:
+        type: string
+      timestamp:
+        type: string
+    required:
+    - name
+    - timestamp
+    type: object
   models.Meal:
     properties:
       created_at:
@@ -227,7 +243,7 @@ paths:
         name: meal
         required: true
         schema:
-          $ref: '#/definitions/models.Meal'
+          $ref: '#/definitions/meal.mealPostRequest'
       produces:
       - application/json
       responses:
