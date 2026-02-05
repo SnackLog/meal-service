@@ -327,12 +327,21 @@ const docTemplate = `{
                 "alcohol": {
                     "type": "number"
                 },
+                "alcohol_unit": {
+                    "type": "string"
+                },
                 "beta_carotene": {
                     "type": "number"
+                },
+                "beta_carotene_unit": {
+                    "type": "string"
                 },
                 "calcium": {
                     "description": "Minerals",
                     "type": "number"
+                },
+                "calcium_unit": {
+                    "type": "string"
                 },
                 "carbohydrates": {
                     "description": "Macros: Carbohydrates \u0026 Sugars",
@@ -344,8 +353,14 @@ const docTemplate = `{
                 "cholesterol": {
                     "type": "number"
                 },
+                "cholesterol_unit": {
+                    "type": "string"
+                },
                 "copper": {
                     "type": "number"
+                },
+                "copper_unit": {
+                    "type": "string"
                 },
                 "created_at": {
                     "type": "string"
@@ -373,38 +388,74 @@ const docTemplate = `{
                 "fiber": {
                     "type": "number"
                 },
+                "fiber_unit": {
+                    "type": "string"
+                },
                 "fructose": {
                     "type": "number"
+                },
+                "fructose_unit": {
+                    "type": "string"
                 },
                 "fruits_veg_legumes_est": {
                     "type": "number"
                 },
+                "fruits_veg_legumes_est_unit": {
+                    "type": "string"
+                },
                 "fruits_veg_nuts_est": {
                     "type": "number"
+                },
+                "fruits_veg_nuts_est_unit": {
+                    "type": "string"
                 },
                 "galactose": {
                     "type": "number"
                 },
+                "galactose_unit": {
+                    "type": "string"
+                },
                 "glucose": {
                     "type": "number"
+                },
+                "glucose_unit": {
+                    "type": "string"
                 },
                 "iodine": {
                     "type": "number"
                 },
+                "iodine_unit": {
+                    "type": "string"
+                },
                 "iron": {
                     "type": "number"
+                },
+                "iron_unit": {
+                    "type": "string"
                 },
                 "lactose": {
                     "type": "number"
                 },
+                "lactose_unit": {
+                    "type": "string"
+                },
                 "magnesium": {
                     "type": "number"
+                },
+                "magnesium_unit": {
+                    "type": "string"
                 },
                 "maltose": {
                     "type": "number"
                 },
+                "maltose_unit": {
+                    "type": "string"
+                },
                 "manganese": {
                     "type": "number"
+                },
+                "manganese_unit": {
+                    "type": "string"
                 },
                 "monounsaturated_fat": {
                     "type": "number"
@@ -425,14 +476,26 @@ const docTemplate = `{
                 "pantothenic_acid": {
                     "type": "number"
                 },
+                "pantothenic_acid_unit": {
+                    "type": "string"
+                },
                 "phosphorus": {
                     "type": "number"
+                },
+                "phosphorus_unit": {
+                    "type": "string"
                 },
                 "phylloquinone": {
                     "type": "number"
                 },
+                "phylloquinone_unit": {
+                    "type": "string"
+                },
                 "polyols": {
                     "type": "number"
+                },
+                "polyols_unit": {
+                    "type": "string"
                 },
                 "polyunsaturated_fat": {
                     "type": "number"
@@ -442,6 +505,9 @@ const docTemplate = `{
                 },
                 "potassium": {
                     "type": "number"
+                },
+                "potassium_unit": {
+                    "type": "string"
                 },
                 "proteins": {
                     "description": "Macros: Proteins \u0026 Others",
@@ -472,6 +538,9 @@ const docTemplate = `{
                 "selenium": {
                     "type": "number"
                 },
+                "selenium_unit": {
+                    "type": "string"
+                },
                 "sodium": {
                     "type": "number"
                 },
@@ -481,11 +550,20 @@ const docTemplate = `{
                 "starch": {
                     "type": "number"
                 },
+                "starch_unit": {
+                    "type": "string"
+                },
                 "sucrose": {
                     "type": "number"
                 },
+                "sucrose_unit": {
+                    "type": "string"
+                },
                 "sugars": {
                     "type": "number"
+                },
+                "sugars_unit": {
+                    "type": "string"
                 },
                 "trans_fat": {
                     "type": "number"
@@ -497,38 +575,74 @@ const docTemplate = `{
                     "description": "Vitamins",
                     "type": "number"
                 },
+                "vitamin_a_unit": {
+                    "type": "string"
+                },
                 "vitamin_b1": {
                     "type": "number"
                 },
                 "vitamin_b12": {
                     "type": "number"
                 },
+                "vitamin_b12_unit": {
+                    "type": "string"
+                },
+                "vitamin_b1_unit": {
+                    "type": "string"
+                },
                 "vitamin_b2": {
                     "type": "number"
+                },
+                "vitamin_b2_unit": {
+                    "type": "string"
                 },
                 "vitamin_b6": {
                     "type": "number"
                 },
+                "vitamin_b6_unit": {
+                    "type": "string"
+                },
                 "vitamin_b9": {
                     "type": "number"
+                },
+                "vitamin_b9_unit": {
+                    "type": "string"
                 },
                 "vitamin_c": {
                     "type": "number"
                 },
+                "vitamin_c_unit": {
+                    "type": "string"
+                },
                 "vitamin_d": {
                     "type": "number"
+                },
+                "vitamin_d_unit": {
+                    "type": "string"
                 },
                 "vitamin_e": {
                     "type": "number"
                 },
+                "vitamin_e_unit": {
+                    "type": "string"
+                },
                 "vitamin_pp": {
                     "type": "number"
+                },
+                "vitamin_pp_unit": {
+                    "type": "string"
                 },
                 "water": {
                     "type": "number"
                 },
+                "water_unit": {
+                    "type": "string"
+                },
                 "zinc": {
                     "type": "number"
+                },
+                "zinc_unit": {
+                    "type": "string"
                 }
             }
         }
